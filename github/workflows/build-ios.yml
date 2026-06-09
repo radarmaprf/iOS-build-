@@ -1,0 +1,28 @@
+name: Build iOS app
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install PWA Builder CLI
+        run: npm install -g @pwabuilder/pwa
+      - name: Generate PWA
+        run: pwa generate --url https://radarmaprf.github.io/aisiwjwk/
+      - name: Build iOS
+        run: pwa build --platform ios
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-app
+          path: .pwa/build/ios/*.ipa
