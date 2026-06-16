@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачать validKeys.json</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0a0f12;
+            color: #eef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            background: rgba(20,30,35,0.85);
+            backdrop-filter: blur(14px);
+            border-radius: 48px;
+            padding: 40px 32px;
+            text-align: center;
+            max-width: 480px;
+            width: 90%;
+            border: 1px solid rgba(255,215,0,0.3);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+        }
+        h1 { font-size: 2rem; margin-bottom: 20px; }
+        button {
+            background: #ffaa33;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a2a2a;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+        }
+        button:hover { background: #ffcc66; transform: scale(1.02); }
+        .info { margin-top: 20px; font-size: 0.9rem; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📥 Лицензионные ключи</h1>
+        <p style="margin-bottom: 20px;">50 новых ключей для Firebase</p>
+        <button id="downloadBtn">📥 Скачать validKeys.json</button>
+        <div class="info">Файл будет загружен автоматически</div>
+    </div>
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const keys = {
+                "key1": "a7k2m9x4-q5r8w3n1",
+                "key2": "b3c6f9h2-j8l4m6p7",
+                "key3": "d4e8g1k5-t6y9u3i7",
+                "key4": "f2h7j4m9-x8c3v5b6",
+                "key5": "g5k8n3q1-z7m4p2r9",
+                "key6": "h1j6l9c4-s3d8f6g2",
+                "key7": "k3m7p2r8-w4n5y9t1",
+                "key8": "l4n8q3t7-e6u1i2o9",
+                "key9": "m2p5r9u4-c7v8b3n6",
+                "key10": "n6q1t8w5-g4h7j9k2",
+                "key11": "p3r7u2x9-l5m8n1c4",
+                "key12": "q5t8w1y4-n7p3r6h9",
+                "key13": "r2u6x9c5-m4q8t1s7",
+                "key14": "s4w7y1n8-b5v9k3l6",
+                "key15": "t3x6z9f2-a7c4e8g1",
+                "key16": "u5y8b2m7-d9f3h6k1",
+                "key17": "v7c1e4g9-j5l8n2q3",
+                "key18": "w3m6p9t2-r4u7x1y5",
+                "key19": "x5n8q1u4-s7v2c9f6",
+                "key20": "y2p7r4m9-t5w8b3k1",
+                "key21": "z4u8x3c7-v1n6m9q2",
+                "key22": "a1b5d8g3-h7k2l4p9",
+                "key23": "c6e9f1m4-n8q3t5w7",
+                "key24": "d2g7j4p9-r5u8x1y3",
+                "key25": "f4k8n1t6-z7c3v9m2",
+                "key26": "g1l5p8s3-d6f9h2j7",
+                "key27": "h3m7q2u9-w5n1t8c4",
+                "key28": "j5n9t3x7-e2g6k1p4",
+                "key29": "k2p6r9c5-v8m3l7f1",
+                "key30": "l4s8w1y5-n2q7t9g3",
+                "key31": "m1u5x9f3-b7c4e8h2",
+                "key32": "n3w7c2g9-j5l1p6t4",
+                "key33": "p5x1f8m3-s9v2c7g4",
+                "key34": "q2t6y9k4-r8u3n7m1",
+                "key35": "r4v8b2m7-f1j5l9c3",
+                "key36": "s1w5n9c4-t7y2p6g8",
+                "key37": "t3x7f1m5-v9c2k8u4",
+                "key38": "u5y9c3f7-b1n4m8g2",
+                "key39": "v1n6m3p9-t5w8c2x4",
+                "key40": "w3q7t2m6-x9f1j5l8",
+                "key41": "x5s9k4n1-y7c2v3p6",
+                "key42": "y2u6f9m4-c7t1s8n3",
+                "key43": "z4x8c3n6-m9p2f7t1",
+                "key44": "a1c5e7g9-k3m6p8s2",
+                "key45": "b3d6f8h2-j5l7n9q1",
+                "key46": "c4e7g1k5-t8u2y6i9",
+                "key47": "d2f5h8m3-q9t4w7c1",
+                "key48": "e1g4j7p2-r6u9x3n5",
+                "key49": "f3h6k9n1-w5c8v2b7",
+                "key50": "g2j5l8q4-z7m3p6r9"
+            };
+            // Создаём JSON-строку с красивым форматированием
+            const json = JSON.stringify(keys, null, 2);
+            // Создаём Blob и ссылку для скачивания
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'validKeys.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>
